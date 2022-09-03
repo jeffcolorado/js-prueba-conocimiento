@@ -48,14 +48,20 @@
         let valorTotal = 0
         
         
-        if(CantidadDinero === "" || CantidadDinero === null || CantidadDinero === NaN){
-            alert("Por favor rellene el campo vacio - DepositoDinero")
+        if(CantidadDinero === ""){
+            alert("Por favor rellene el campo vacio - Cantidad Deposito")
+        
+        }else if(isNaN(CantidadDinero)){
+            alert("Solo se aceptan números - Cantidad Deposito")
 
-        }else if (PeliculaSeleccionada === "" || PeliculaSeleccionada === null){
+        }else if (PeliculaSeleccionada === ""){
             alert("Por favor rellene el campo vacio - ¿Qué pelicula desea ver?")
 
-        }else if(CantidadBoletos === "" || CantidadBoletos === null || CantidadBoletos === NaN){
+        }else if(CantidadBoletos === ""){
             alert("Por favor rellene el campo vacio - Cantidad de boletos")
+
+        }else if(isNaN(CantidadBoletos)){
+            alert("Solo se acepta números - Cantidad de boletos")
 
         }else if((PeliculaSeleccionada === "MATRIX") || (PeliculaSeleccionada === "matrix") || (PeliculaSeleccionada === "Matrix") || (PeliculaSeleccionada === "JUMANJI") || (PeliculaSeleccionada === "jumanji") || (PeliculaSeleccionada === "Jumanji") || (PeliculaSeleccionada === "TITANIC") || (PeliculaSeleccionada === "titanic") || (PeliculaSeleccionada === "Titanic") || (PeliculaSeleccionada === "PROYECTOX") || (PeliculaSeleccionada === "PROYECTO X") || (PeliculaSeleccionada === "proyecto x") || (PeliculaSeleccionada === "proyecto X") || (PeliculaSeleccionada === "PROYECTO x") || (PeliculaSeleccionada === "Proyecto X") || (PeliculaSeleccionada === "Anabelle") || (PeliculaSeleccionada === "anabelle") || (PeliculaSeleccionada === "ANABELLE")){
 
