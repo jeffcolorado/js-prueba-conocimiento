@@ -1,0 +1,90 @@
+<html>
+    <style>
+        .catalogo{display: flex;}
+    </style>
+    <h1> CINE VIRTUAL </h1>
+    <h2> Películas disponibles </h2>
+    <section class="catalogo">
+    <fig>
+        <img src="https://score.procinal.com.co/mobilecomjson/imagenes/MATRIX_RESURRECCIONES.jpg"  width="200" height="300" >
+        <figcaption>MATRIX</figcaption>
+    </fig>
+    <fig>
+        <img src="https://es.web.img3.acsta.net/pictures/19/11/04/11/54/1194009.jpg"   width="200" height="300">
+        <figcaption>JUMANJI</figcaption>
+    </fig>
+    <fig>
+        <img src="https://www.ecartelera.com/carteles/2400/2425/002_m.jpg"  width="200" height="300">
+        <figcaption>TITANIC</figcaption>
+    </fig>
+    <fig>
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/3/w1280/owF9NIcQOPFAOjp2pni8BsVlnRq.jpg"  width="200" height="300">
+        <figcaption>PROYECTOX</figcaption>
+    </fig>
+    <fig>
+        <img src="https://es.web.img3.acsta.net/pictures/14/08/28/11/22/474253.jpg"  width="200" height="300">
+        <figcaption>ANABELLE</figcaption>
+    </fig>
+    </section>
+    <br>
+    <br>
+    <label for="pelicula-seleccionada">¿Qué pelicula desea ver?</label>
+    <input id="pelicula-seleccionada" type="text">
+    <label for="cantidad-boleto">Cantidad boletos</label>
+    <input id="cantidad-boleto" type="text">
+    <label for="cantidad-dinero">Cantidad Deposito</label>
+    <input id="cantidad-dinero" type="text">
+    <button onclick="comprarboleto()">Comprar boleto</button>
+</html>
+
+
+<script>
+    function comprarboleto(){
+
+        let PeliculaSeleccionada = document.getElementById("pelicula-seleccionada").value
+        let CantidadBoletos = (document.getElementById("cantidad-boleto").value)
+        let CantidadDinero = (document.getElementById("cantidad-dinero").value)
+        let cuentaInicial = CantidadBoletos * 10000
+        let valorTotal = 0
+        
+        
+        if(CantidadDinero === "" || CantidadDinero === null || CantidadDinero === NaN){
+            alert("Por favor rellene el campo vacio - DepositoDinero")
+
+        }else if (PeliculaSeleccionada === "" || PeliculaSeleccionada === null || PeliculaSeleccionada === NaN){
+            alert("Por favor rellene el campo vacio - ¿Qué pelicula desea ver?")
+
+        }else if(CantidadBoletos === "" || CantidadBoletos === null || CantidadBoletos === NaN){
+            alert("Por favor rellene el campo vacio - Cantidad de boletos")
+
+        }else if((PeliculaSeleccionada === "MATRIX") || (PeliculaSeleccionada === "matrix") || (PeliculaSeleccionada === "Matrix") || (PeliculaSeleccionada === "JUMANJI") || (PeliculaSeleccionada === "jumanji") || (PeliculaSeleccionada === "Jumanji") || (PeliculaSeleccionada === "TITANIC") || (PeliculaSeleccionada === "titanic") || (PeliculaSeleccionada === "Titanic") || (PeliculaSeleccionada === "PROYECTOX") || (PeliculaSeleccionada === "PROYECTO X") || (PeliculaSeleccionada === "proyecto x") || (PeliculaSeleccionada === "proyecto X") || (PeliculaSeleccionada === "PROYECTO x") || (PeliculaSeleccionada === "Proyecto X") || (PeliculaSeleccionada === "Anabelle") || (PeliculaSeleccionada === "anabelle") || (PeliculaSeleccionada === "ANABELLE")){
+
+            CantidadBoletos = parseFloat(CantidadBoletos)
+            CantidadDinero = parseFloat(CantidadDinero)
+//------------------------------------------------------------------------------------------------------------------------
+            if(CantidadBoletos < 5){
+                let descuento = 0
+                valorTotal = cuentaInicial - descuento
+                if(CantidadDinero < valorTotal){
+                    alert("No le alcanza el dinero")
+                }else{
+                    let devuelta = CantidadDinero - valorTotal
+                     document.write("Boleto(s) comprados(s) satisfactoriamente."+"<br>"+"Pelicula: "+PeliculaSeleccionada+"<br>"+"Cantidad Boletos: "+CantidadBoletos+"<br>"+"Precio*Boleto: "+"10000"+"<br>"+"Descuento: "+descuento+"<br>"+"TotalPago: "+valorTotal+"<br>"+"Deposito: "+CantidadDinero+"<br>"+"Devuelta: "+devuelta)
+                }
+            }else{
+                let descuento = cuentaInicial *(5/100)
+                valorTotal = cuentaInicial - descuento
+                if(CantidadDinero < valorTotal){
+                    alert("No le alcanza el dinero")
+                }else{
+                    let devuelta = CantidadDinero - valorTotal
+                     document.write("Boleto(s) comprados(s) satisfactoriamente."+"<br>"+"Pelicula: "+PeliculaSeleccionada+"<br>"+"Cantidad Boletos: "+CantidadBoletos+"<br>"+"Precio*Boleto: "+"10000"+"<br>"+"Descuento: "+descuento+"<br>"+"TotalPago: "+valorTotal+"<br>"+"Deposito: "+CantidadDinero+"<br>"+"Devuelta: "+devuelta)
+                }
+            }
+    //--------------------------------------------------------------------------------------------------------------------
+        }else{
+            alert("La película que ingresaste no se encuentra en catálogo")
+        }
+    }    
+</script>
+
