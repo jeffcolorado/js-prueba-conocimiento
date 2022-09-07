@@ -1,0 +1,29 @@
+<html>
+    <h2>¿Es palindromo?</h2>
+    <label for="cadena">Ingrese una palabra o frase</label>
+    <input type="text" id="cadena">
+    <button onclick="btnRevisar()">Revisar</button>
+</html>
+
+<script>
+    function btnRevisar(){    
+        let cadena = document.getElementById("cadena").value
+        
+        function esPalindromo(str){
+            var re = /[^A-Za-z0-9]/g; 
+            str = str.toLowerCase().replace(re, '');
+            var len = str.length; 
+            for (var i = 0; i < len/2; i++) { 
+                if (str[i] !== str[len - 1 - i]) { 
+                return false; } 
+            } return true; 
+        }
+
+        if(esPalindromo(cadena) === true){
+            document.write("La siguiente frase es palindromo puesto que al revés se lee igual: "+"<br>"+ cadena)
+        }else{
+            document.write("La siguiente frase no es un palindromo: "+"<br>"+ cadena)
+        }
+    }
+
+</script>

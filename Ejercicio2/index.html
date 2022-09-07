@@ -1,0 +1,59 @@
+<html>
+    <h2> Ingrese 10 números por favor</h2>
+
+    <label for="num"> Número</label>
+    <input type="number" id="num">
+    <button id="btn-add-btn">Agregar Número</button>
+    <br>
+    <br>
+    <textarea id="lista-nums" cols="40" rows="10" readonly></textarea><br>
+    <br>
+    <button id="btn-calcular">Calcular</button>
+    <br>
+    <p>Resultado<br><textarea id="resultado" cols="40" rows="10" readonly></textarea></p>
+    
+    
+</html>
+<script>
+    var Num = document.getElementById("num");
+    var BtnAddNum = document.getElementById("btn-add-btn");
+    var ListaNums = document.getElementById("lista-nums");
+    var BtnCalcular = document.getElementById("btn-calcular");
+    var Resultado = document.getElementById("resultado");
+    var ArrayNums = new Array();
+
+    BtnAddNum.addEventListener("click",(event)=>{
+        var AddedNum = Num.value;
+        if(ArrayNums.length == 10){
+            alert("No se pueden añadir más de 10 valores");
+            return;
+        }else if(AddedNum.length == 0){
+            alert("No se admiten campos vacios");
+            return;
+        }else if(AddedNum > -1){
+            ListaNums.value = ListaNums.value + AddedNum + "  "
+            ArrayNums.push(AddedNum);
+            Num.value = "";
+        }else{
+            alert("Los numeros no pueden ser negativos");
+        }
+    });
+
+    BtnCalcular.addEventListener("click",(event)=>{
+        if(ArrayNums.length != 10){
+            alert("No has ingresado los 10 valores")
+            return
+        }
+
+        //Este for recorre el Array que contiene los números que hemos ingresado
+        for (i = 0; i < ArrayNums.length; i++){
+            //Si posición i del array con modulo dos es igual a cero es par.
+            if(ArrayNums[i] % 2 == 0){
+                Resultado.value = Resultado.value + ArrayNums[i] + " es PAR." + "\r"
+            }else{//Si nó es impar.
+                Resultado.value = Resultado.value + ArrayNums[i] + " es IMPAR." + "\r"
+            }
+        }
+    });
+
+</script>
